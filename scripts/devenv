@@ -1,0 +1,16 @@
+#!/bin/sh
+source ./scripts/shell.sh
+
+tmux new-session -s afhlaton   -n code -d
+
+tmux new-window  -t afhlaton:2 -n run
+tmux new-window  -t afhlaton:3 -n files
+tmux new-window  -t afhlaton:4 -n git
+
+tmux send-keys -t 'files' 'man tmux' Enter
+tmux send-keys -t 'git' 'git log' Enter
+
+tmux select-window -t afhlaton:1
+neovide &
+tmux -2 attach-session -t afhlaton
+

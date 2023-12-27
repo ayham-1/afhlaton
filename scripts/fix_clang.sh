@@ -1,0 +1,1 @@
+bear -- ./scripts/debug.sh
